@@ -10,3 +10,5 @@ for (let i = 1; i <= 99; i += 1) {
 		i += 1;
 	}
 }
+
+// When an even number is found, this solution increments i on line 10 to skip iteration over odd numbers and move to the next even number.
