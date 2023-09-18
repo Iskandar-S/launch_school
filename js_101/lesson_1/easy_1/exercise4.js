@@ -40,15 +40,24 @@
 let readlineSync = require('readline-sync');
 
 let inputTypes = ['Feet', 'Meters'];
-let index = readlineSync.keyInSelect(inputTypes, 'Choose input type:');
-let selectedInputType = inputTypes[index].toLowerCase();
+let CONVERSION_RATES = [0.0929, 10.7639];
 
-console.log(`Enter the length of the room in ${selectedInputType}:`);
+let index = readlineSync.keyInSelect(inputTypes, 'Choose input type:');
+
+let inputTypeSelected = inputTypes[index].toLowerCase();
+let inputTypeConverted = inputTypes[1 - index].toLowerCase();
+
+const CONVERSION_RATE_SELECTED = CONVERSION_RATES[index];
+
+console.log(`Enter the length of the room in ${inputTypeSelected}:`);
 let length = Number(readlineSync.prompt());
 
-console.log(`Enter the width of the room in ${selectedInputType}:`);
+console.log(`Enter the width of the room in ${inputTypeSelected}:`);
 let width = Number(readlineSync.prompt());
 
 let area = length * width;
+let areaConverted = area * CONVERSION_RATE_SELECTED;
 
-console.log(`The area of the room is ${area} square ${selectedInputType}.`);
+console.log(
+	`The area of the room is ${area} square ${inputTypeSelected} (${areaConverted} square ${inputTypeConverted}).`,
+);
