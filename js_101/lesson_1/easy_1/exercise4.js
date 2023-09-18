@@ -16,19 +16,39 @@
 
 // Solution:
 
+// let readlineSync = require('readline-sync');
+
+// const SQMETERS_TO_SQFEET = 10.7639;
+
+// console.log('Enter the length of the room in meters:');
+// let length = Number(readlineSync.prompt());
+
+// console.log('Enter the width of the room in meters:');
+// let width = Number(readlineSync.prompt());
+
+// let areaMetric = length * width;
+// let areaImperial = areaMetric * SQMETERS_TO_SQFEET;
+
+// console.log(
+// 	`The area of the room is ${areaMetric} square meters (${areaImperial} square feet).`,
+// );
+
+// Further Exploration
+
+// Modify the program so that it asks the user for the input type (meters or feet). Compute for the area accordingly, and log it and its conversion in parentheses.
+
 let readlineSync = require('readline-sync');
 
-const SQMETERS_TO_SQFEET = 10.7639;
+let inputTypes = ['Feet', 'Meters'];
+let index = readlineSync.keyInSelect(inputTypes, 'Choose input type:');
+let selectedInputType = inputTypes[index].toLowerCase();
 
-console.log('Enter the length of the room in meters:');
+console.log(`Enter the length of the room in ${selectedInputType}:`);
 let length = Number(readlineSync.prompt());
 
-console.log('Enter the width of the room in meters:');
+console.log(`Enter the width of the room in ${selectedInputType}:`);
 let width = Number(readlineSync.prompt());
 
-let areaMetric = length * width;
-let areaImperial = areaMetric * SQMETERS_TO_SQFEET;
+let area = length * width;
 
-console.log(
-	`The area of the room is ${areaMetric} square meters (${areaImperial} square feet).`,
-);
+console.log(`The area of the room is ${area} square ${selectedInputType}.`);
