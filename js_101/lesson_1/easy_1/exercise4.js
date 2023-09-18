@@ -18,6 +18,8 @@
 
 let readlineSync = require('readline-sync');
 
+const SQMETERS_TO_SQFEET = 10.7639;
+
 console.log('Enter the length of the room in meters:');
 let length = Number(readlineSync.prompt());
 
@@ -25,7 +27,7 @@ console.log('Enter the width of the room in meters:');
 let width = Number(readlineSync.prompt());
 
 let areaMetric = length * width;
-let areaImperial = areaMetric * 10.7639;
+let areaImperial = areaMetric * SQMETERS_TO_SQFEET;
 
 console.log(
 	`The area of the room is ${areaMetric} square meters (${areaImperial} square feet).`,
