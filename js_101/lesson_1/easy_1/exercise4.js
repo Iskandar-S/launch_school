@@ -30,7 +30,7 @@
 // let areaImperial = areaMetric * SQMETERS_TO_SQFEET;
 
 // console.log(
-// 	`The area of the room is ${areaMetric} square meters (${areaImperial} square feet).`,
+//   `The area of the room is ${areaMetric.toFixed(2)} square meters (${areaImperial.toFixed(2)} square feet).`
 // );
 
 // Further Exploration
@@ -59,5 +59,5 @@ let area = length * width;
 let areaConverted = area * CONVERSION_RATE_SELECTED;
 
 console.log(
-	`The area of the room is ${area} square ${inputTypeSelected} (${areaConverted} square ${inputTypeConverted}).`,
+  `The area of the room is ${area.toFixed(2)} square ${inputTypeSelected} (${areaConverted.toFixed(2)} square ${inputTypeConverted}).`
 );
