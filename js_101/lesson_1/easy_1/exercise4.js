@@ -40,13 +40,12 @@
 let readlineSync = require('readline-sync');
 
 let inputTypes = ['Feet', 'Meters'];
-let CONVERSION_RATES = [0.0929, 10.7639];
-
 let index = readlineSync.keyInSelect(inputTypes, 'Choose input type:');
 
 let inputTypeSelected = inputTypes[index].toLowerCase();
 let inputTypeConverted = inputTypes[1 - index].toLowerCase();
 
+const CONVERSION_RATES = [0.0929, 10.7639];
 const CONVERSION_RATE_SELECTED = CONVERSION_RATES[index];
 
 console.log(`Enter the length of the room in ${inputTypeSelected}:`);
