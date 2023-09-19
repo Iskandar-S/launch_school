@@ -14,13 +14,15 @@
 
 // The product of the integers between 1 and 6 is 720.
 
+// Solution:
+
 let readlineSync = require('readline-sync');
 
 function getInteger() {
   let input = Number(
     readlineSync.question('Please enter an integer greater than 0: ')
   );
-  if (input > 0) {
+  if (input > 0 && input !== Infinity) {
     return input;
   }
   console.log('Invalid entry.');
