@@ -27,7 +27,7 @@ function getInteger() {
   return getInteger();
 }
 
-function getSumOrProduct() {
+function getOperation() {
   let input = readlineSync
     .question('Enter "s" to compute the sum, or "p" to compute the product. ')
     .toLowerCase();
@@ -35,10 +35,10 @@ function getSumOrProduct() {
     return input;
   }
   console.log('Invalid entry.');
-  return getSumOrProduct();
+  return getOperation();
 }
 
-function sumOfAllNumbers(integer) {
+function computeSum(integer) {
   let sum = 0;
   for (let i = 1; i <= integer; i += 1) {
     sum += i;
@@ -46,7 +46,7 @@ function sumOfAllNumbers(integer) {
   return sum;
 }
 
-function productOfAllNumbers(integer) {
+function computeProduct(integer) {
   let product = 1;
   for (let i = 1; i <= integer; i += 1) {
     product *= i;
@@ -55,18 +55,14 @@ function productOfAllNumbers(integer) {
 }
 
 let integer = getInteger();
-let sumOrProduct = getSumOrProduct();
+let operation = getOperation();
 
-if (sumOrProduct === 's') {
+if (operation === 's') {
+  let sum = computeSum(integer);
+  console.log(`The sum of the integers between 1 and ${integer} is ${sum}.`);
+} else if (operation === 'p') {
+  let product = computeProduct(integer);
   console.log(
-    `The sum of the integers between 1 and ${integer} is ${sumOfAllNumbers(
-      integer
-    )}.`
-  );
-} else if (sumOrProduct === 'p') {
-  console.log(
-    `The product of the integers between 1 and ${integer} is ${productOfAllNumbers(
-      integer
-    )}`
+    `The product of the integers between 1 and ${integer} is ${product}.`
   );
 }
