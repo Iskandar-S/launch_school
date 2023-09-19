@@ -22,14 +22,20 @@ isLeapYear(400); // true
 
 // Solution:
 
+// function isLeapYear(year) {
+//   if (year % 400 === 0) {
+//     return true;
+//   } else if (year % 100 === 0) {
+//     return false;
+//   } else {
+//     return year % 4 === 0;
+//   }
+// }
+
+// A shorter solution:
+
 function isLeapYear(year) {
-  if (year % 400 === 0) {
-    return true;
-  } else if (year % 100 === 0) {
-    return false;
-  } else {
-    return year % 4 === 0;
-  }
+  return year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0);
 }
 
 console.log(isLeapYear(2016));
