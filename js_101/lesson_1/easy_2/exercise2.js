@@ -21,3 +21,16 @@ console.log(
 		? `HELLO ${name.replace('!', '.').toUpperCase()} WHY ARE WE SCREAMING?`
 		: `Hello ${name}.`
 );
+
+// Launch School Solution:
+
+// let readlineSync = require("readline-sync");
+
+// let name = readlineSync.question("What is your name? ");
+
+// if (name[name.length - 1] === "!") {
+//   name = name.slice(0, -1);
+//   console.log(`HELLO ${name.toUpperCase()}. WHY ARE YOU SCREAMING?`);
+// } else {
+//   console.log(`Hello ${name}.`);
+// }
