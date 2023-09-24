@@ -16,12 +16,12 @@ let readlineSync = require('readline-sync');
 
 let name = readlineSync.question('What is your name? ');
 
-let nameUppercase = name.replace('!', '.').toUpperCase();
+let nameUpperCase = name.replace('!', '.').toUpperCase();
 
 console.log(
-	name.endsWith('!')
-		? `HELLO ${nameUppercase} WHY ARE WE SCREAMING?`
-		: `Hello ${name}.`
+  name.endsWith('!')
+    ? `HELLO ${nameUpperCase} WHY ARE WE SCREAMING?`
+    : `Hello ${name}.`
 );
 
 // Launch School Solution:
