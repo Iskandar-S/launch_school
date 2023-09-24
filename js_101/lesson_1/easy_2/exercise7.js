@@ -16,3 +16,18 @@ console.log(xor(true, true) === false); // true
 function xor(value1, value2) {
   return value1 ? !value2 : !!value2;
 }
+
+// Launch School Solution:
+
+function xor(value1, value2) {
+  if ((value1 && !value2) || (value2 && !value1)) {
+    return true;
+  }
+  return false;
+}
+
+// A shorter version of this function is:
+
+function xor(value1, value2) {
+  return !!((value1 && !value2) || (value2 && !value1));
+}
