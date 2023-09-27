@@ -18,3 +18,20 @@ function crunch(string) {
     .filter((character, index) => character !== string[index - 1])
     .join('');
 }
+
+// Further exploration:
+
+// It's also possible to solve this using regular expressions. For a nice challenge, give this a try with regular expressions.
+
+// Solution:
+
+function crunchRegex(string) {
+  let regex = /(.)(?=\1)/gi;
+  return string.replace(regex, '');
+}
+
+console.log(crunchRegex('ddaaiillyy ddoouubbllee')); // "daily double"
+console.log(crunchRegex('4444abcabccba')); // "4abcabcba"
+console.log(crunchRegex('ggggggggggggggg')); // "g"
+console.log(crunchRegex('a')); // "a"
+console.log(crunchRegex('')); // ""
