@@ -68,6 +68,14 @@ logInBoxFixed('To boldly go where no one has gone before.', 12);
 // |              |
 // +--------------+
 
+logInBoxFixed('To boldly go where no one has gone before.');
+
+// +--------------------------------------------+
+// |                                            |
+// | To boldly go where no one has gone before. |
+// |                                            |
+// +--------------------------------------------+
+
 // For a challenging but fun exercise, try word wrapping messages that are too long to fit, so that they appear on multiple lines but are still contained within the box. This isn't an easy problem, but it's doable with basic JavaScript.
 
 // Solution:
@@ -83,7 +91,7 @@ function logInBoxChallenge(string, width = string.length) {
 
   while (string.length > width) {
     message += `| ${string.substring(0, width)} |\n`;
-    let index = string.charAt(width) === ' ' ? width + 1 : width;
+    let index = string.charAt(width) === ' ' && width > 1 ? width + 1 : width;
     string = string.substring(index);
   }
   message += `| ${string + ' '.repeat(width - string.length)} |`;
@@ -103,3 +111,60 @@ logInBoxChallenge('To boldly go where no one has gone before.', 12);
 // | ore.         |
 // |              |
 // +--------------+
+
+logInBoxChallenge('To boldly go where no one has gone before.', 1);
+
+// +---+
+// |   |
+// | T |
+// | o |
+// |   |
+// | b |
+// | o |
+// | l |
+// | d |
+// | l |
+// | y |
+// |   |
+// | g |
+// | o |
+// |   |
+// | w |
+// | h |
+// | e |
+// | r |
+// | e |
+// |   |
+// | n |
+// | o |
+// |   |
+// | o |
+// | n |
+// | e |
+// |   |
+// | h |
+// | a |
+// | s |
+// |   |
+// | g |
+// | o |
+// | n |
+// | e |
+// |   |
+// | b |
+// | e |
+// | f |
+// | o |
+// | r |
+// | e |
+// | . |
+// |   |
+// +---+
+
+logInBoxChallenge('To boldly go where no one has gone before.');
+
+// +--------------------------------------------+
+// |                                            |
+// | To boldly go where no one has gone before. |
+// |                                            |
+// +--------------------------------------------+
