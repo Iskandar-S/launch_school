@@ -22,6 +22,8 @@ logInBox('');
 // |  |
 // +--+
 
+// You may assume that the output will always fit in your browser window.
+
 // Solution:
 
 function logInBox(string) {
