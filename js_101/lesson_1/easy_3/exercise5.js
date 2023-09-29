@@ -28,6 +28,6 @@ triangle(9);
 
 function triangle(n) {
   for (let i = 1; i <= n; i += 1) {
-    console.log('*'.repeat(i).padStart(n, ' '));
+    console.log('*'.repeat(i).padStart(n));
   }
 }
