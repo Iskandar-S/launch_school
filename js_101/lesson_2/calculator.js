@@ -5,6 +5,7 @@
 // Print the result to the terminal.
 
 const readline = require('readline-sync');
+let message = require('./calculatorMessages.json');
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -15,19 +16,19 @@ function invalidNumber(number) {
 }
 
 function getNumbers() {
-  prompt("What's the first number?");
+  prompt(message.request.firstNumber);
   let number1 = readline.question();
 
   while (invalidNumber(number1)) {
-    prompt("Hmm... that doesn't look like a valid number.");
+    prompt(message.error.invalidNumber);
     number1 = readline.question();
   }
 
-  prompt("What's the second number?");
+  prompt(message.request.secondNumber);
   let number2 = readline.question();
 
   while (invalidNumber(number2)) {
-    prompt("Hmm... that doesn't look like a valid number.");
+    prompt(message.error.invalidNumber);
     number2 = readline.question();
   }
 
@@ -35,11 +36,11 @@ function getNumbers() {
 }
 
 function getOperation() {
-  prompt('What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide');
+  prompt(message.request.operation);
   let operation = readline.question();
 
   while (!['1', '2', '3', '4'].includes(operation)) {
-    prompt('Must choose 1, 2, 3 or 4');
+    prompt(message.error.invalidOperation);
     operation = readline.question();
   }
 
@@ -68,11 +69,11 @@ function calculate (number1, number2, operation) {
 }
 
 function anotherCalculation() {
-  prompt('Would you like to perform another calculation? Y/N');
+  prompt(message.request.anotherCalculation);
   let input = readline.question().toLowerCase();
 
   while (input !== 'y' && input !== 'n') {
-    prompt('Invalid input. Would you like to perform another calculation? Y/N');
+    prompt(message.error.invalidInputAnotherCalculation);
     input = readline.question().toLowerCase();
   }
 
@@ -83,17 +84,16 @@ function anotherCalculation() {
 function runCalculator() {
   let [number1, number2] = getNumbers();
   let operation = getOperation();
-  let output = calculate(number1, number2, operation);
+  let result = calculate(number1, number2, operation);
 
-  prompt(`The result is: ${output}\n`);
+  prompt(message.result + result + '\n');
 
   if (anotherCalculation()) {
     console.clear();
     runCalculator();
-  } else {
-    prompt('Thank you for using Calculator! Goodbye!');
   }
 }
 
-prompt('Welcome to Calculator!');
+prompt(message.greeting);
 runCalculator();
+prompt(message.farewell);
