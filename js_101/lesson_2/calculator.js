@@ -1,9 +1,3 @@
-// Ask the user for the first number.
-// Ask the user for the second number.
-// Ask the user for an operation to perform.
-// Perform the operation on the two numbers.
-// Print the result to the terminal.
-
 const readline = require('readline-sync');
 let message = require('./calculatorMessages.json');
 
@@ -11,9 +5,54 @@ function prompt(message) {
   console.log(`=> ${message}`);
 }
 
+function greet() {
+  message.languages.forEach(language => prompt(language.messages.greeting + ' ' + language.messages.request.language));
+}
+
+// Language Setup
+
+function getLanguageOptions() {
+  let languageOptions = '';
+
+  message.languages.forEach((language, index) => {
+    languageOptions += `${index + 1}) ${language.messages.nativeName} `;
+  });
+
+  return languageOptions;
+}
+
+function setLanguage() {
+  greet();
+
+  let languageOptions = getLanguageOptions();
+
+  prompt(languageOptions);
+  let languageSelected = readline.question();
+
+  while (invalidLanguage(languageSelected)) {
+    prompt(languageOptions);
+    languageSelected = readline.question();
+  }
+
+  message = message.languages[languageSelected - 1].messages;
+}
+
+// Validation
+
 function invalidNumber(number) {
   return number.trimStart() === '' || Number.isNaN(Number(number));
 }
+
+function invalidLanguage(language) {
+  let outOfRange = language < 1 || language > message.languages.length;
+  return invalidNumber(language) || outOfRange;
+}
+
+function divisionByZero(divisor, operation) {
+  return divisor === 0 && operation === '4';
+}
+
+// Calculation
 
 function getNumbers() {
   prompt(message.request.firstNumber);
@@ -70,30 +109,39 @@ function calculate (number1, number2, operation) {
 
 function anotherCalculation() {
   prompt(message.request.anotherCalculation);
-  let input = readline.question().toLowerCase();
+  let input = readline.question();
 
-  while (input !== 'y' && input !== 'n') {
-    prompt(message.error.invalidInputAnotherCalculation);
+  while (input !== '1' && input !== '2') {
+    console.clear();
+    prompt(message.error.invalidYesOrNo);
+    prompt(message.request.anotherCalculation);
     input = readline.question().toLowerCase();
   }
 
-  return input === 'y';
+  return input === '1';
 }
 
 
 function runCalculator() {
+  console.clear();
   let [number1, number2] = getNumbers();
   let operation = getOperation();
-  let result = calculate(number1, number2, operation);
 
-  prompt(message.result + result + '\n');
+  if (divisionByZero(number2, operation)) {
+    prompt(message.error.divisionByZero);
+  } else {
+    let result = calculate(number1, number2, operation);
+
+    prompt(message.result + result + '\n');
+  }
 
   if (anotherCalculation()) {
-    console.clear();
     runCalculator();
+  } else {
+    console.clear();
+    prompt(message.farewell);
   }
 }
 
-prompt(message.greeting);
+setLanguage();
 runCalculator();
-prompt(message.farewell);

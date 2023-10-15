@@ -1,16 +1,70 @@
 {
-  "greeting":"Welcome to Calculator!",
-  "farewell":"Thank you for using Calculator! Goodbye!",
-  "result":"The result is: ",
-  "request": {
-    "firstNumber":"What's the first number?",
-    "secondNumber":"What's the second number?",
-    "operation":"What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
-    "anotherCalculation":"Would you like to perform another calculation? Y/N"
-  },
-  "error": {
-    "invalidNumber":"Hmm... that doesn't look like a valid number.",
-    "invalidOperation":"Must choose 1, 2, 3 or 4",
-    "invalidInputAnotherCalculation":"Invalid input. Would you like to perform another calculation? Y/N"
-  }
+  "languages": [
+    {
+      "language":"english",
+      "messages":{
+        "nativeName":"English",
+        "greeting":"Welcome to Calculator!",
+        "farewell":"Thank you for using Calculator! Goodbye!",
+        "result":"The result is: ",
+        "request": {
+          "language": "Please choose a language:",
+          "firstNumber":"What's the first number?",
+          "secondNumber":"What's the second number?",
+          "operation":"What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
+          "anotherCalculation":"Would you like to perform another calculation?\n 1) Yes 2) No"
+        },
+        "error": {
+          "invalidNumber":"Hmm... that doesn't look like a valid number.",
+          "invalidOperation":"Must choose 1, 2, 3 or 4.",
+          "invalidYesOrNo":"Must choose 1 or 2.",
+          "divisionByZero":"Some people just want to watch the world burn."
+        }
+      }
+    },
+    {
+      "language":"uzbek",
+      "messages":{
+        "nativeName":"O'zbek",
+        "greeting":"Kalkulyatorga xush kelibsiz!",
+        "farewell":"Kalkulyatordan foydalanganingiz uchun rahmat! Xayr!",
+        "result":"Natija: ",
+        "request": {
+          "language": "Iltimos, tilni tanlang:",
+          "firstNumber":"Birinchi sonni kiriting?",
+          "secondNumber":"Ikkinchi sonni kiriting?",
+          "operation":"Qaysi amalni bajarishni istaysiz?\n1) Qo'shish 2) Ayirish 3) Ko'paytirish 4) Bo'lish",
+          "anotherCalculation":"Yana bir hisob kitob amaliyatini bajarishni istaysizmi?\n1) Ha 2) Yo'q"
+        },
+        "error": {
+          "invalidNumber":"Hmm... bu yaroqli songa o'xshamaydi.",
+          "invalidOperation":"1, 2, 3 yoki 4-ni tanlash kerak.",
+          "invalidYesOrNo":"1 yoki 2-ni tanlash kerak.",
+          "divisionByZero":"Ba'zi odamlar faqat dunyoni yonishini istaydilar."
+        }
+      }
+    },
+    {
+      "language":"russian",
+      "messages":{
+        "nativeName":"Русский",
+        "greeting":"Добро пожаловать в Калькулятор!",
+        "farewell":"Спасибо, что использовали Калькулятор! До свидания!",
+        "result":"Результат: ",
+        "request": {
+          "language": "Пожалуйста, выберите язык:",
+          "firstNumber":"Какое первое число?",
+          "secondNumber":"Какое второе число?",
+          "operation":"Какое действие вы хотели бы выполнить?\n1) Сложение 2) Вычитание 3) Умножение 4) Деление",
+          "anotherCalculation":"Желаете выполнить еще одно вычисление?\n1) Да 2) Нет"
+        },
+        "error": {
+          "invalidNumber":"Хм... это не похоже на допустимое число.",
+          "invalidOperation":"Вы должны выбрать 1, 2, 3 или 4.",
+          "invalidYesOrNo":"Вы должны выбрать 1 или 2.",
+          "divisionByZero":"Некоторые люди просто хотят видеть, как мир горит."
+        }
+      }
+    }
+  ]
 }
